@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Grader Debug Front-End</title>
+    <link rel="icon" type="iamge/png" href="favicon.png" />
+    <style type="text/css">
+      html, body {
+        width: 800px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+            "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.25;
+      }
+      form {
+        width: 100%;
+      }
+      select {
+        display: block;
+        font-size: 1.2em;
+      }
+      textarea {
+        width: 100%;
+        height: 15em;
+      }
+      .action {
+        text-align: center;
+      }
+      button {
+        font-size: 1.2em;
+        padding: 0.5em 3em 0.5em 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/" method="POST" enctype="multipart/form-data">
+      <p>
+        <label for="task-input">Task</label>
+        <select name="task" id="task-input">
+        <%- @problems.each do |problem| -%>
+          <option value="<%= problem.param_name %>">
+            <%= h problem.name %>
+          </option>
+        <%- end -%>
+        </select>
+      </p>
+
+      <p>
+        <label for="code-input">Code</label>
+        <textarea name="code" id="code-input"></textarea>
+      </p>
+
+      <p>
+        <label for="debug-input">Debug test case</label>
+        <input type="checkbox" name="debug" id="debug-input" value="true">
+        </input>
+      </p>
+
+      <p class="action">
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+  </body>
+</html>

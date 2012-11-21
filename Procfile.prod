@@ -1,0 +1,3 @@
+grader: bundle exec unicorn --config config/unicorn.rb config.ru
+test: bundle exec unicorn --config test_app/unicorn.rb test_app/config.ru
+csrf: bundle exec unicorn --config cors_app/unicorn.rb cors_app/config.ru

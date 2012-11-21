@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+<%= js_library_tags %>
+  </head>
+  <body>
+    <script id="setup" type="text/javascript">
+      ajaxUrl = <%= data[:cors_url].inspect %>;
+    </script>
+    <script type="text/javascript">
+<%= compiled_code %>
+    </script>
+
+    <p>Page loaded.</p>
+  </body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<%= js_library_tags %>
+  </head>
+  <body>
+    <p>
+      Work <input id="slider1" type="range" min="0" max="100"/>
+      <span id="value1">0</span>%
+    </div>
+    <p>
+      Play <input id="slider2" type="range" min="0" max="100"/>
+      <span id="value2">0</span>%
+    </p>
+
+    <script type="text/javascript">
+<%= compiled_code %>
+    </script>
+    <script type="text/javascript">
+      (function() {
+        var slider1 = document.querySelector("#slider1");
+        var slider2 = document.querySelector("#slider2");
+
+        var value1 = document.querySelector("#value1");
+        var value2 = document.querySelector("#value2");
+
+        var updateValues = function() {
+          value1.innerText = "" + slider1.value;
+          value2.innerText = "" + slider2.value;
+        }
+
+        slider1.value = 80;
+        slider2.value = 20;
+        updateValues();
+
+        slider1.addEventListener("change", function(event) {
+          updateSliderValue(1);
+          updateValues();
+        });
+        slider2.addEventListener("change", function(event) {
+          updateSliderValue(2);
+          updateValues();
+        });
+      })();
+    </script>
+  </body>
+</html>

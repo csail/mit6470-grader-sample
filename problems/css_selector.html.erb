@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <style type="text/css">
+<%= compiled_code %>
+    </style>
+    <style type="text/css">
+p {
+  color: red;
+}
+    </style>
+  </head>
+  <body>
+    <% data[:paragraphs].times do |i| %>
+      <p>Paragraph number <%= i + 1 %>. Nothing really interesting here.</p>
+    <% end %>
+  </body>
+</html>
